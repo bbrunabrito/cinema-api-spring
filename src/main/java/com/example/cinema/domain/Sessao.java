@@ -1,22 +1,34 @@
 package com.example.cinema.domain;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.UUID;
 
-@Entity
-@Table(name = "TB_SESSAO")
+@Data
 public class Sessao {
-    @Id
-    @Column(name = "ID_SESSAO")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_FILME", referencedColumnName = "ID_FILME")
+    private String id;
     private Filme idFilme;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_SALA", referencedColumnName = "ID_SALA")
     private Sala idSala;
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public Filme getIdFilme() {
+        return idFilme;
+    }
+
+    public void setIdFilme(Filme idFilme) {
+        this.idFilme = idFilme;
+    }
+
+    public Sala getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(Sala idSala) {
+        this.idSala = idSala;
+    }
 }

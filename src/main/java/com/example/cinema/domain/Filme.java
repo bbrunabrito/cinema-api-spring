@@ -1,29 +1,20 @@
 package com.example.cinema.domain;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 import java.util.UUID;
 
-@Entity
-@Table(name = "TB_FILME")
+@Data
 public class Filme {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_FILME")
-    private UUID id;
-
-    @Column(name = "NOME_FILME")
+    private String id;
     private String nome;
-
-    @Column(name = "DESCRICAO_FILME")
     private String descricao;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
