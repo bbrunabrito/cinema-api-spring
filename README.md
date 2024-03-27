@@ -135,3 +135,7 @@ POST http://localhost:8080/sessoes
         }
     }
 ```
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE)
