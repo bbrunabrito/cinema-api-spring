@@ -2,7 +2,7 @@ package com.example.cinema.controller.filme;
 
 import com.example.cinema.application.filme.dto.FilmeDTO;
 import com.example.cinema.domain.Filme;
-import com.example.cinema.service.FilmeService;
+import com.example.cinema.service.filme.FilmeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/filmes")

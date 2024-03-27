@@ -7,8 +7,8 @@ public class SessaoConversor {
     public static Sessao of (SessaoDTO sessaoDTO) {
         Sessao sessao = new Sessao();
         sessao.setId(sessaoDTO.getId());
-        sessao.setIdFilme(sessaoDTO.getIdFilme());
-        sessao.setIdSala(sessaoDTO.getIdSala());
+        sessao.setFilme(sessaoDTO.getFilme());
+        sessao.setSala(sessaoDTO.getSala());
         return sessao;
     }
 }

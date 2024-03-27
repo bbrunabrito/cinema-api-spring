@@ -24,10 +24,11 @@ public class SessaoRepository {
     }
 
     public List<Sessao> findAll() {
-        return jdbcTemplate.query("SELECT * FROM SESSAO S INNER join  FILME F on S.id_filme = F.id LEFT OUTER JOIN CINEMA.SALA S2 on S2.ID = S.ID_SALA", sessaoRowMapper);
+        String sql = "SELECT * FROM SESSAO";
+        return jdbcTemplate.query(sql, sessaoRowMapper);
     }
 
     public void save(Sessao sessao) {
-        jdbcTemplate.update("INSERT INTO SESSAO (ID, ID_FILME, ID_SALA) VALUES (?,?,?)", sessao.getId(), sessao.getIdFilme(), sessao.getIdSala());
+        jdbcTemplate.update("INSERT INTO SESSAO (ID, ID_FILME, ID_SALA) VALUES (?,?,?)", sessao.getId(),sessao.getFilme().getId(), sessao.getSala().getId());
     }
 }

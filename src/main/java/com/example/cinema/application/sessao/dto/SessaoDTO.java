@@ -12,6 +12,6 @@ import java.util.UUID;
 @Setter
 public class SessaoDTO{
     private String id;
-    private String idFilme;
-    private String idSala;
+    private Filme filme;
+    private Sala sala;
 }

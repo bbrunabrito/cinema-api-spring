@@ -1,4 +1,4 @@
-package com.example.cinema.service;
+package com.example.cinema.service.filme;
 
 import com.example.cinema.application.filme.dto.FilmeDTO;
 import com.example.cinema.domain.Filme;

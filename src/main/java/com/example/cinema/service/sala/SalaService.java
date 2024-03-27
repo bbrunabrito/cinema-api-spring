@@ -1,4 +1,4 @@
-package com.example.cinema.service;
+package com.example.cinema.service.sala;
 
 
 import com.example.cinema.application.sala.dto.SalaDTO;
@@ -18,6 +18,7 @@ public class SalaService {
     SalaRepository salaRepository;
 
     public List<Sala> getAllSalas() {
+
         return salaRepository.findAll();
     }
 
