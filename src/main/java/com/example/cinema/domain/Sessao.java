@@ -8,27 +8,27 @@ import java.util.UUID;
 @Data
 public class Sessao {
     private String id;
-    private Filme idFilme;
-    private Sala idSala;
+    private String idFilme;
+    private String idSala;
     public String getId() {
         return id;
     }
     public void setId(String id) {
         this.id = id;
     }
-    public Filme getIdFilme() {
+    public String getIdFilme() {
         return idFilme;
     }
 
-    public void setIdFilme(Filme idFilme) {
+    public void setIdFilme(String idFilme) {
         this.idFilme = idFilme;
     }
 
-    public Sala getIdSala() {
+    public String getIdSala() {
         return idSala;
     }
 
-    public void setIdSala(Sala idSala) {
+    public void setIdSala(String idSala) {
         this.idSala = idSala;
     }
 }
