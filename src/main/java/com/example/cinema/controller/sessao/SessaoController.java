@@ -1,5 +1,6 @@
 package com.example.cinema.controller.sessao;
 
+
 import com.example.cinema.application.sessao.dto.SessaoDTO;
 import com.example.cinema.domain.Sessao;
 import com.example.cinema.service.sessao.SessaoService;
@@ -28,8 +29,8 @@ public class SessaoController {
     }
 
     @PostMapping
-    public ResponseEntity<Sessao> saveSessao(@RequestBody @Valid SessaoDTO sessaoRecordDTOController){
-        return ResponseEntity.status(HttpStatus.CREATED).body(sessaoService.saveSessao(sessaoRecordDTOController));
+    public ResponseEntity<Sessao> saveSessao(@RequestBody @Valid SessaoDTO sessao){
+        return ResponseEntity.status(HttpStatus.CREATED).body(sessaoService.saveSessao(sessao));
     }
 
 }

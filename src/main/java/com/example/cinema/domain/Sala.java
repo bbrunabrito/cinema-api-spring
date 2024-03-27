@@ -6,8 +6,16 @@ import java.util.UUID;
 
 @Data
 public class Sala {
+    @Id
     private String id;
     private int numero;
+
+    public Sala() {}
+    public Sala(String id, int numero) {
+        this.id = id;
+        this.numero = numero;
+    }
+
     public String getId() {
         return id;
     }

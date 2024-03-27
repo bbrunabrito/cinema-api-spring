@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -29,6 +30,11 @@ public class SessaoRepository {
     }
 
     public void save(Sessao sessao) {
-        jdbcTemplate.update("INSERT INTO SESSAO (ID, ID_FILME, ID_SALA) VALUES (?,?,?)", sessao.getId(),sessao.getFilme().getId(), sessao.getSala().getId());
+        try {
+            jdbcTemplate.update("INSERT INTO SESSAO (ID, ID_FILME, ID_SALA) VALUES (?,?,?)", sessao.getId(), sessao.getFilme().getId(), sessao.getSala().getId());
+        }
+        catch (Exception e) {
+            e.getMessage();
+        }
     }
 }

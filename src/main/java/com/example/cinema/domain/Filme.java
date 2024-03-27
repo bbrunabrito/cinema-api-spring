@@ -1,14 +1,25 @@
 package com.example.cinema.domain;
 
+import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
 public class Filme {
+    @Id
     private String id;
     private String nome;
     private String descricao;
+
+    public Filme() {
+    }
+
+    public Filme(String id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public String getId() {
         return id;
