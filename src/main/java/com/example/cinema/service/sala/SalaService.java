@@ -35,4 +35,17 @@ public class SalaService {
         salaRepository.save(sala);
         return sala;
     }
+
+    public Sala updateSala(String id, SalaDTO salaDTO) {
+        Sala sala = getOneSala(id);
+        BeanUtils.copyProperties(salaDTO, sala);
+        salaRepository.update(sala);
+        return sala;
+    }
+
+    public Sala deleteSala(String id) {
+        Sala sala = getOneSala(id);
+        salaRepository.delete(sala);
+        return sala;
+    }
 }

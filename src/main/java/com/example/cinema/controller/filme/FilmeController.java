@@ -24,12 +24,22 @@ public class FilmeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneFilme(@PathVariable(value = "id") String id) {
+    public ResponseEntity<Filme> getOneFilme(@PathVariable(value = "id") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(filmeService.getOneFilme(id));
     }
 
     @PostMapping
     public ResponseEntity<Filme> saveFilme(@RequestBody @Valid FilmeDTO filmeRecordDTOController) {
         return ResponseEntity.status(HttpStatus.CREATED).body(filmeService.saveFilme(filmeRecordDTOController));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Filme> updateFilme(@PathVariable(value = "id") String id, @RequestBody @Valid FilmeDTO filmeDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(filmeService.updateFilme(id, filmeDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Filme> updateFilme(@PathVariable(value = "id") String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(filmeService.deleteFilme(id));
     }
 }

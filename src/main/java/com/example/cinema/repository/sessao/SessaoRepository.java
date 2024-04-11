@@ -37,4 +37,12 @@ public class SessaoRepository {
             e.getMessage();
         }
     }
+
+    public void update(Sessao sessao) {
+        jdbcTemplate.update("UPDATE SESSAO SET ID_FILME = ?, ID_SALA = ? WHERE ID = ?", sessao.getFilme().getId(), sessao.getSala().getId(), sessao.getId());
+    }
+
+    public void remove(Sessao sessao) {
+        jdbcTemplate.update("DELETE FROM SESSAO WHERE ID = ?", sessao.getId());
+    }
 }

@@ -33,4 +33,14 @@ public class SessaoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(sessaoService.saveSessao(sessao));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Sessao> updateSessao(@PathVariable(value = "id") String id, @RequestBody @Valid SessaoDTO sessaoDTO){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(sessaoService.updateSessao(id, sessaoDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Sessao> removeSessao(@PathVariable(value = "id") String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(sessaoService.deleteSessao(id));
+    }
+
 }

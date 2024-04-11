@@ -30,6 +30,8 @@ public class SessaoService {
     private SalaRepository salaRepository;
 
 
+
+
     public List<Sessao> getAllSessoes() {
         List<Sessao> sessaoList = sessaoRepository.findAll();
 
@@ -55,6 +57,18 @@ public class SessaoService {
         SessaoConversor sessaoConversor = new SessaoConversor();
         Sessao sessao = sessaoConversor.of(sessaoDTO);
         sessaoRepository.save(sessao);
+        return sessao;
+    }
+
+    public Sessao updateSessao(String id, SessaoDTO sessaoDTO) {
+        Sessao sessao = getById(id);
+        sessaoRepository.update(sessao);
+        return sessao;
+    }
+
+    public Sessao deleteSessao(String id) {
+        Sessao sessao = getById(id);
+        sessaoRepository.remove(sessao);
         return sessao;
     }
 }
