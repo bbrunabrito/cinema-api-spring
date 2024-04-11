@@ -32,4 +32,14 @@ public class SalaController {
     public ResponseEntity<Sala> saveSala(@RequestBody @Valid SalaDTO salaRecordDTOController) {
         return ResponseEntity.status(HttpStatus.CREATED).body(salaService.saveSala(salaRecordDTOController));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Sala> updateSala(@PathVariable(value = "id") String id, @RequestBody @Valid SalaDTO salaDTO) {
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(salaService.updateSala(id, salaDTO));
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<Sala> updateSala(@PathVariable(value = "id") String id){
+        return ResponseEntity.status(HttpStatus.OK).body(salaService.deleteSala(id));
+    }
+
 }

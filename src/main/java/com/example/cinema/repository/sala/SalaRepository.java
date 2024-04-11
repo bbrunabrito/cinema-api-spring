@@ -30,4 +30,12 @@ public class SalaRepository {
     public void save(Sala sala) {
         jdbcTemplate.update("INSERT INTO sala (ID, NUMERO) VALUES (?,?)", sala.getId(), sala.getNumero());
     }
+
+    public void update(Sala sala) {
+        jdbcTemplate.update("UPDATE sala SET NUMERO = ? WHERE ID = ?", sala.getNumero(), sala.getId());
+    }
+
+    public void delete(Sala sala) {
+        jdbcTemplate.update("DELETE FROM SALA WHERE ID = ?", sala.getId());
+    }
 }

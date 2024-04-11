@@ -21,7 +21,7 @@ public class FilmeService {
         return filmeRepository.findyByAll();
     }
 
-    public Object getOneFilme(String id) {
+    public Filme getOneFilme(String id) {
         Filme filme = filmeRepository.findById(id);
         return filme;
     }
@@ -31,6 +31,19 @@ public class FilmeService {
         var filme = new Filme();
         BeanUtils.copyProperties(filmeRecordDTOController, filme);
         filmeRepository.save(filme);
+        return filme;
+    }
+
+    public Filme updateFilme(String id, FilmeDTO filmeDTO) {
+        Filme filme = new Filme();
+        BeanUtils.copyProperties(filmeDTO, filme);
+        filmeRepository.update(filme);
+        return filme;
+    }
+
+    public Filme deleteFilme(String id) {
+        Filme filme = getOneFilme(id);
+        filmeRepository.delete(filme);
         return filme;
     }
 }
