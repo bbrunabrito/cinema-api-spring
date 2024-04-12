@@ -46,7 +46,7 @@ mvn springboot:run
 
 Você pode usar qualquer cliente HTTP para fazer requisições a API
 
-Caso utilize o PostMan, você pode usar a [CinemaCollectionspostman_collection.json](assets/Cinema Collections.postman_collection.json)
+Caso utilize o PostMan, você pode usar a [Collections](assets/Cinema_Collections.postman_collection.json)
 para testar a API.
 
 ### Filmes
