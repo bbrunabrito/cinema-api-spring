@@ -5,9 +5,9 @@ Foi desenvolvida usando o framework Spring Boot.
 
 ## Funcionalidades
 
-- Cadastro e consulta de filmes;
-- Cadastro e consulta de salas de cinema;
-- Cadastro e consulta de sessões.
+- Cadastro, consulta, atualização e remoção de filmes;
+- Cadastro, consulta, atualização e remoção de salas de cinema;
+- Cadastro, consulta, atualização e remoção de sessões.
 
 ## Requisitos
 
@@ -44,86 +44,77 @@ mvn springboot:run
 
 ## Uso
 
-Você pode usar qualquer cliente HTTP para fazer requisições a API. Para acessar a documentação da API basta executar a aplicação e acessar `http://localhost:8080/swagger-ui/index.html#/` no navegador.
+Você pode usar qualquer cliente HTTP para fazer requisições a API
+
+Caso utilize o PostMan, você pode usar a [CinemaCollectionspostman_collection.json](assets/Cinema Collections.postman_collection.json)
+para testar a API.
 
 ### Filmes
 
-**GET:**
-
 ```
-GET http://localhost:8080/filmes
-ou
-GET http://localhost:8080/filmes/{id}
-```
-
----
-
-**POST:**
-
-```
-POST http://localhost:8080/filmes
-```
-
-**BODY:**
-
-```
-{
-        "id": "F25B9E8706CC4382B8F06BF63999AA32",
-        "nome": "Donnie Darko",
-        "descricao": "Filme de Ficção"
-}
-```
-
-### Salas de Cinema
-
-**GET:**
-
-```
-GET http://localhost:8080/salas
-ou
-http://localhost:8080/salas/{id}
-```
-
----
-
-**POST:**
-
-```
-POST http://localhost:8080/salas
-```
-
-**BODY:**
-
-```
-{
-        "id": "146b",
-        "numero": 2
-}
-```
-
-### Sessões
-
-**GET:**
-
-```
-GET http://localhost:8080/sessoes
+GET localhost:8080/filmes
 OU
-http://localhost:8080/sessoes/{id}
+GET localhost:8080/filmes/{id}
+OU
+POST localhost:8080/filmes
+OU
+PUT localhost:8080/filmes/{id}
+OU
+DELETE localhost:8080/filmes/{id}
 ```
 
----
-
-**POST:**
+### Body
 
 ```
-POST http://localhost:8080/sessoes
+{
+        "id": "78",
+        "nome": "Filme",
+        "descricao": "Filme teste"
+}
 ```
 
-**BODY:**
+## Salas
 
 ```
-    {
-        "id": "2ss",
+GET localhost:8080/salas
+OU
+GET localhost:8080/salas/{ID}
+OU
+POST localhost:8080/salas
+OU 
+PUT localhost:8080/salas/{ID}
+OU
+DELETE localhost:8080/salas/{ID}
+```
+
+### Body
+
+```
+{
+    "id": "146c",
+    "numero": 7
+}
+```
+
+## Sessões
+
+```
+GET localhost:8080/sessoes
+OU
+GET localhost:8080/sessoes/{ID}
+OU
+POST localhost:8080/sessoes
+OU
+PUT localhost:8080/sessoes/{ID}
+OU 
+DELETE localhost:8080/sessoes/{ID}
+```
+
+### Body
+
+```
+{
+        "id": "5ss",
         "filme": {
             "id": "F25B9E8706CC4382B8F06BF63999AA32",
             "nome": "Donnie Darko",
@@ -133,8 +124,12 @@ POST http://localhost:8080/sessoes
             "id": "146b",
             "numero": 2
         }
-    }
+}
 ```
+
+## Documentação da API
+
+Para acessar a documentação da API basta executar a aplicação e acessar `http://localhost:8080/swagger-ui/index.html#/` no navegador.
 
 ## Licença
 
