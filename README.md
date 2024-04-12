@@ -44,7 +44,7 @@ mvn springboot:run
 
 ## Uso
 
-Você pode usar qualquer cliente HTTP para fazer requisições a API.
+Você pode usar qualquer cliente HTTP para fazer requisições a API. Para acessar a documentação da API basta executar a aplicação e acessar `http://localhost:8080/swagger-ui/index.html#/` no navegador.
 
 ### Filmes
 
