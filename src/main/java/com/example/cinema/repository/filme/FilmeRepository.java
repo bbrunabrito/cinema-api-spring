@@ -20,6 +20,12 @@ public class FilmeRepository {
         this.filmeRowMapper = filmeRowMapper;
     }
 
+    public Integer findCount(){
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM FILME ", Integer.class);
+    }
+    public Integer findCountById(String id){
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM FILME WHERE id = ?", Integer.class, id);
+    }
     public Filme findById(String id) {
         return jdbcTemplate.queryForObject("SELECT * FROM filme WHERE id = ?", filmeRowMapper, id);
     }
@@ -33,7 +39,6 @@ public class FilmeRepository {
     public void save(Filme filme) {
 
         jdbcTemplate.update("INSERT INTO filme (ID, NOME, DESCRICAO) VALUES (?,?,?)", filme.getId(), filme.getNome(), filme.getDescricao());
-        //jdbcTemplate.update("UPDATE filme SET (NOME, DESCRICAO) = (?,?) WHERE ID = ?", filme.getNome(), filme.getDescricao(), filme.getId())
 
     }
 

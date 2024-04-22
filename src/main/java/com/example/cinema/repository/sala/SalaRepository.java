@@ -19,6 +19,13 @@ public class SalaRepository {
         this.salaRowMapper = salaRowMapper;
     }
 
+    public Integer findCount(){
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM sala", Integer.class);
+    }
+
+    public Integer findCountById(String id) {
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM sala WHERE id = ?", Integer.class, id);
+    }
     public Sala findById(String id) {
         return jdbcTemplate.queryForObject("SELECT * FROM sala WHERE id = ?", salaRowMapper, id);
     }

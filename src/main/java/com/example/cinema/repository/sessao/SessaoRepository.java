@@ -2,6 +2,7 @@ package com.example.cinema.repository.sessao;
 
 import com.example.cinema.domain.Sessao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +19,14 @@ public class SessaoRepository {
     @Autowired
     public SessaoRepository(SessaoRowMapper sessaoRowMapper) {
         this.sessaoRowMapper = sessaoRowMapper;
+    }
+
+    public Integer findCount(){
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM SESSAO", Integer.class);
+    }
+
+    public Integer findCountById(String id) {
+        return jdbcTemplate.queryForObject("SELECT count(*) FROM SESSAO WHERE id = ?", Integer.class, id);
     }
 
     public Sessao findBy(String id) {
