@@ -1,6 +1,5 @@
 package com.example.cinema.controller.sessao;
 
-
 import com.example.cinema.application.sessao.dto.SessaoDTO;
 import com.example.cinema.domain.Sessao;
 import com.example.cinema.service.sessao.SessaoService;

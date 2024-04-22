@@ -1,6 +1,5 @@
 package com.example.cinema.application.filme.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,5 +1,6 @@
 package com.example.cinema.service.filme;
 
+import com.example.cinema.application.filme.conversor.FilmeConversor;
 import com.example.cinema.application.filme.dto.FilmeDTO;
 import com.example.cinema.domain.Filme;
 import com.example.cinema.enums.FilmeMensagens;
@@ -12,8 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+
 
 @Service
 public class FilmeService {
@@ -44,8 +44,8 @@ public class FilmeService {
         if (filmeRepository.findCountById(filmeRecordDTOController.getId()) != 0)
             throw new ApiRequestException(FilmeMensagens.ID_FILME_INVALIDO.getMensagem());
 
-        var filme = new Filme();
-        BeanUtils.copyProperties(filmeRecordDTOController, filme);
+        FilmeConversor filmeConversor = new FilmeConversor();
+        Filme filme = filmeConversor.of(filmeRecordDTOController);
         filmeRepository.save(filme);
         return filme;
     }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.UUID;
+
 
 @Component
 public class FilmeRowMapper implements RowMapper<Filme> {

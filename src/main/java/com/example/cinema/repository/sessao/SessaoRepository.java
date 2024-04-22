@@ -2,11 +2,9 @@ package com.example.cinema.repository.sessao;
 
 import com.example.cinema.domain.Sessao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository

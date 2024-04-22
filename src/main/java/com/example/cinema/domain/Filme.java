@@ -3,7 +3,6 @@ package com.example.cinema.domain;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-import java.util.UUID;
 
 @Data
 public class Filme {

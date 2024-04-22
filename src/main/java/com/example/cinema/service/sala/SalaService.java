@@ -1,18 +1,17 @@
 package com.example.cinema.service.sala;
 
 
+import com.example.cinema.application.sala.conversor.SalaConversor;
 import com.example.cinema.application.sala.dto.SalaDTO;
 import com.example.cinema.domain.Sala;
 import com.example.cinema.enums.SalaMensagens;
 import com.example.cinema.exceptions.ApiRequestException;
 import com.example.cinema.repository.sala.SalaRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+
 
 @Service
 public class SalaService {
@@ -42,23 +41,22 @@ public class SalaService {
             throw new ApiRequestException(SalaMensagens.NUMERO_SALA_VAZIO.getMensagem());
         if(salaRecordDTOController.getId() == null)
             throw new ApiRequestException(SalaMensagens.ID_SALA_VAZIO.getMensagem());
-
-        var sala = new Sala();
-        BeanUtils.copyProperties(salaRecordDTOController, sala);
+        SalaConversor salaConversor = new SalaConversor();
+        Sala sala = salaConversor.of(salaRecordDTOController);
         salaRepository.save(sala);
         return sala;
     }
 
     public Sala updateSala(String id, SalaDTO salaDTO) {
         Sala sala = getOneSala(id);
-
         if (salaDTO.getNumero() == null)
             throw new ApiRequestException(SalaMensagens.NUMERO_SALA_VAZIO.getMensagem());
         if(salaDTO.getId() == null)
             throw new ApiRequestException(SalaMensagens.ID_SALA_VAZIO.getMensagem());
 
-        BeanUtils.copyProperties(salaDTO, sala);
-        salaRepository.update(sala);
+        SalaConversor salaConversor = new SalaConversor();
+        Sala sala_atualizada = salaConversor.of(salaDTO);
+        salaRepository.update(sala_atualizada);
         return sala;
     }
 

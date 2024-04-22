@@ -1,11 +1,6 @@
 package com.example.cinema.repository.sessao;
 
-import com.example.cinema.domain.Filme;
-import com.example.cinema.domain.Sala;
 import com.example.cinema.domain.Sessao;
-import com.example.cinema.repository.filme.FilmeRepository;
-import com.example.cinema.repository.sala.SalaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

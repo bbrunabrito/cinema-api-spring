@@ -10,15 +10,10 @@ import com.example.cinema.exceptions.ApiRequestException;
 import com.example.cinema.repository.filme.FilmeRepository;
 import com.example.cinema.repository.sala.SalaRepository;
 import com.example.cinema.repository.sessao.SessaoRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+
 
 @Service
 public class SessaoService {

@@ -2,7 +2,6 @@ package com.example.cinema.controller.filme;
 
 import com.example.cinema.application.filme.dto.FilmeDTO;
 import com.example.cinema.domain.Filme;
-import com.example.cinema.exceptions.ApiRequestException;
 import com.example.cinema.service.filme.FilmeService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;

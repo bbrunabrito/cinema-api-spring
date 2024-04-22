@@ -2,7 +2,6 @@ package com.example.cinema.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.UUID;
 
 @Data
 public class Sala {
